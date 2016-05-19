@@ -10,6 +10,9 @@
 		984B16D41CEDF413003838C1 /* ElasticPullToUpdate.h in Headers */ = {isa = PBXBuildFile; fileRef = 984B16D31CEDF413003838C1 /* ElasticPullToUpdate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		984B16DB1CEDF413003838C1 /* ElasticPullToUpdate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 984B16D01CEDF413003838C1 /* ElasticPullToUpdate.framework */; };
 		984B16E01CEDF413003838C1 /* ElasticPullToUpdateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984B16DF1CEDF413003838C1 /* ElasticPullToUpdateTests.swift */; };
+		984B16EB1CEDF42A003838C1 /* ElasticPullToUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984B16EA1CEDF42A003838C1 /* ElasticPullToUpdate.swift */; };
+		B46FBA872E23631EE40DBEB2 /* Pods_ElasticPullToUpdateTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAEBB814C0BE7303140C948C /* Pods_ElasticPullToUpdateTests.framework */; };
+		DE85BCE9516D061BDF0D08D3 /* Pods_ElasticPullToUpdate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D60C3A11B436C18E53AC56A6 /* Pods_ElasticPullToUpdate.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -23,12 +26,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		07ECF2946604A7CB7C46CE52 /* Pods-ElasticPullToUpdateTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ElasticPullToUpdateTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ElasticPullToUpdateTests/Pods-ElasticPullToUpdateTests.release.xcconfig"; sourceTree = "<group>"; };
+		19DEE396358727A02EC5B3B0 /* Pods-ElasticPullToUpdate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ElasticPullToUpdate.release.xcconfig"; path = "Pods/Target Support Files/Pods-ElasticPullToUpdate/Pods-ElasticPullToUpdate.release.xcconfig"; sourceTree = "<group>"; };
+		38978E8D43C92518EDC17310 /* Pods-ElasticPullToUpdate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ElasticPullToUpdate.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ElasticPullToUpdate/Pods-ElasticPullToUpdate.debug.xcconfig"; sourceTree = "<group>"; };
+		84F08A7B5751755C82470CF1 /* Pods-ElasticPullToUpdateTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ElasticPullToUpdateTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ElasticPullToUpdateTests/Pods-ElasticPullToUpdateTests.debug.xcconfig"; sourceTree = "<group>"; };
 		984B16D01CEDF413003838C1 /* ElasticPullToUpdate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ElasticPullToUpdate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		984B16D31CEDF413003838C1 /* ElasticPullToUpdate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ElasticPullToUpdate.h; sourceTree = "<group>"; };
 		984B16D51CEDF413003838C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		984B16DA1CEDF413003838C1 /* ElasticPullToUpdateTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ElasticPullToUpdateTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		984B16DF1CEDF413003838C1 /* ElasticPullToUpdateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElasticPullToUpdateTests.swift; sourceTree = "<group>"; };
 		984B16E11CEDF413003838C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		984B16EA1CEDF42A003838C1 /* ElasticPullToUpdate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ElasticPullToUpdate.swift; sourceTree = "<group>"; };
+		D60C3A11B436C18E53AC56A6 /* Pods_ElasticPullToUpdate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ElasticPullToUpdate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EAEBB814C0BE7303140C948C /* Pods_ElasticPullToUpdateTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ElasticPullToUpdateTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE85BCE9516D061BDF0D08D3 /* Pods_ElasticPullToUpdate.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,18 +55,30 @@
 			buildActionMask = 2147483647;
 			files = (
 				984B16DB1CEDF413003838C1 /* ElasticPullToUpdate.framework in Frameworks */,
+				B46FBA872E23631EE40DBEB2 /* Pods_ElasticPullToUpdateTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1651B4D0F672951D30905D6F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D60C3A11B436C18E53AC56A6 /* Pods_ElasticPullToUpdate.framework */,
+				EAEBB814C0BE7303140C948C /* Pods_ElasticPullToUpdateTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		984B16C61CEDF413003838C1 = {
 			isa = PBXGroup;
 			children = (
 				984B16D21CEDF413003838C1 /* ElasticPullToUpdate */,
 				984B16DE1CEDF413003838C1 /* ElasticPullToUpdateTests */,
 				984B16D11CEDF413003838C1 /* Products */,
+				EB8A3778CB754CE3D1684C16 /* Pods */,
+				1651B4D0F672951D30905D6F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -73,6 +96,7 @@
 			children = (
 				984B16D31CEDF413003838C1 /* ElasticPullToUpdate.h */,
 				984B16D51CEDF413003838C1 /* Info.plist */,
+				984B16EA1CEDF42A003838C1 /* ElasticPullToUpdate.swift */,
 			);
 			path = ElasticPullToUpdate;
 			sourceTree = "<group>";
@@ -84,6 +108,17 @@
 				984B16E11CEDF413003838C1 /* Info.plist */,
 			);
 			path = ElasticPullToUpdateTests;
+			sourceTree = "<group>";
+		};
+		EB8A3778CB754CE3D1684C16 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				38978E8D43C92518EDC17310 /* Pods-ElasticPullToUpdate.debug.xcconfig */,
+				19DEE396358727A02EC5B3B0 /* Pods-ElasticPullToUpdate.release.xcconfig */,
+				84F08A7B5751755C82470CF1 /* Pods-ElasticPullToUpdateTests.debug.xcconfig */,
+				07ECF2946604A7CB7C46CE52 /* Pods-ElasticPullToUpdateTests.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -104,10 +139,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 984B16E41CEDF413003838C1 /* Build configuration list for PBXNativeTarget "ElasticPullToUpdate" */;
 			buildPhases = (
+				4E70138400C7F9B28B868CD6 /* 📦 Check Pods Manifest.lock */,
 				984B16CB1CEDF413003838C1 /* Sources */,
 				984B16CC1CEDF413003838C1 /* Frameworks */,
 				984B16CD1CEDF413003838C1 /* Headers */,
 				984B16CE1CEDF413003838C1 /* Resources */,
+				3C31ADABA5A62CE23615F5C2 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -122,9 +159,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 984B16E71CEDF413003838C1 /* Build configuration list for PBXNativeTarget "ElasticPullToUpdateTests" */;
 			buildPhases = (
+				B9E19A100DD674DF98DECFCA /* 📦 Check Pods Manifest.lock */,
 				984B16D61CEDF413003838C1 /* Sources */,
 				984B16D71CEDF413003838C1 /* Frameworks */,
 				984B16D81CEDF413003838C1 /* Resources */,
+				0D86AF20D418AEC1F8906A09 /* 📦 Embed Pods Frameworks */,
+				982074FF898C7A895A364D9A /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -189,11 +229,90 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0D86AF20D418AEC1F8906A09 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ElasticPullToUpdateTests/Pods-ElasticPullToUpdateTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3C31ADABA5A62CE23615F5C2 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ElasticPullToUpdate/Pods-ElasticPullToUpdate-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4E70138400C7F9B28B868CD6 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		982074FF898C7A895A364D9A /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ElasticPullToUpdateTests/Pods-ElasticPullToUpdateTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B9E19A100DD674DF98DECFCA /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		984B16CB1CEDF413003838C1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				984B16EB1CEDF42A003838C1 /* ElasticPullToUpdate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,7 +373,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -297,7 +416,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -309,7 +428,9 @@
 		};
 		984B16E51CEDF413003838C1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 38978E8D43C92518EDC17310 /* Pods-ElasticPullToUpdate.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -320,12 +441,15 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ramotion.ElasticPullToUpdate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		984B16E61CEDF413003838C1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 19DEE396358727A02EC5B3B0 /* Pods-ElasticPullToUpdate.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -341,6 +465,7 @@
 		};
 		984B16E81CEDF413003838C1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 84F08A7B5751755C82470CF1 /* Pods-ElasticPullToUpdateTests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = ElasticPullToUpdateTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -351,6 +476,7 @@
 		};
 		984B16E91CEDF413003838C1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 07ECF2946604A7CB7C46CE52 /* Pods-ElasticPullToUpdateTests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = ElasticPullToUpdateTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -378,6 +504,7 @@
 				984B16E61CEDF413003838C1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		984B16E71CEDF413003838C1 /* Build configuration list for PBXNativeTarget "ElasticPullToUpdateTests" */ = {
 			isa = XCConfigurationList;
@@ -386,6 +513,7 @@
 				984B16E91CEDF413003838C1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
