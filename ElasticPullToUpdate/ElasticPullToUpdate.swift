@@ -143,7 +143,6 @@ public class ElasticPullToUpdate: UIView, PullToRefreshViewDelegate {
         self.animateProgress()
         
         let when = dispatch_time(DISPATCH_TIME_NOW, Int64(circleAnimation.duration * 1100) * Int64(NSEC_PER_MSEC))
-        print(when, dispatch_time(DISPATCH_TIME_NOW, 0))
         dispatch_after(when, dispatch_get_main_queue()) {
             self.animationTimer = NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(ElasticPullToUpdate.iota), target: self, selector: #selector(self.animateProgress), userInfo: nil, repeats: true)
         }
@@ -163,6 +162,10 @@ public class ElasticPullToUpdate: UIView, PullToRefreshViewDelegate {
         
         circleLayer.removeAllAnimations()
         progressLayer.removeAllAnimations()
+        
+        self.layer.sublayers?.forEach {
+            $0.removeFromSuperlayer()
+        }
     }
     
     /**
@@ -175,7 +178,8 @@ public class ElasticPullToUpdate: UIView, PullToRefreshViewDelegate {
     public func pullToRefresh(view: PullToRefreshView, progressDidChange progress: CGFloat) {
         self.superview?.bringSubviewToFront(self)
         
-        if let pState = self.pullState where pState == .ReleaseToRefresh && progress >= threshold {
+        let toPath: UIBezierPath
+        if progress >= threshold {
             let coef: CGFloat = min(1.0, (progress - threshold))
             let borderY  = bounds.maxY
             let controlY = borderY + bounds.height * coef
@@ -187,18 +191,26 @@ public class ElasticPullToUpdate: UIView, PullToRefreshViewDelegate {
             path.addQuadCurveToPoint(CGPoint(x: bounds.minX, y: borderY), controlPoint: CGPoint(x: bounds.midX, y: controlY))
             path.addLineToPoint(CGPoint(x: bounds.minX, y: bounds.minY))
             
-            shapeLayer.path = path.CGPath
+            toPath = path
         } else {
-            shapeLayer.path = UIBezierPath(rect: bounds).CGPath
+            toPath = UIBezierPath(rect: bounds)
         }
+        
+        shapeLayer.path = toPath.CGPath
+        self.layer.addSublayer(shapeLayer)
         
         let maskLayer = CAShapeLayer(layer: shapeLayer)
         maskLayer.path = shapeLayer.path
         
         self.layer.mask = maskLayer
-        self.layer.addSublayer(shapeLayer)
         
-        shapeLayer.fillColor = tintColor.CGColor
+        if let superColor = superview?.backgroundColor where superColor.colorWithAlphaComponent(0.0) == superColor {
+            superview?.backgroundColor = UIColor.whiteColor()
+        }
+        
+        let fillColor: UIColor = superview?.superview?.backgroundColor ?? UIColor.lightGrayColor()
+        
+        shapeLayer.fillColor = fillColor.CGColor
     }
     
     private var pullState: PullToRefreshViewState?
