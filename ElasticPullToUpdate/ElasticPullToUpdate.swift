@@ -9,10 +9,32 @@
 import UIKit
 import Refresher
 
+/**
+ # Elastic pull to update
+ ----
+ Elastic pull animator for [`Refresher`](https://github.com/jcavar/refresher).
+ 
+ - Requires:
+ ```
+ pod 'Refresher'
+ ```
+ 
+ ### Usage:
+ ```
+ tableView.addPullToRefreshWithAction({
+    yourAsyncRefreshingCall(…, callback: {
+        …
+        self.tableView.stopPullToRefresh()
+        …
+    })
+ }, withAnimator: ElasticPullToUpdate(…))
+ ```
+ */
 public class ElasticPullToUpdate: UIView, PullToRefreshViewDelegate {
     private static let iota = 0.01
     
-    var threshold: CGFloat = 0.5 {
+    /// Set the pulling down threshold. Value is between `0.0` and `1.0`.
+    public var threshold: CGFloat = 0.5 {
         didSet {
             if threshold < 0.0 {
                 threshold = 0.0
@@ -36,10 +58,15 @@ public class ElasticPullToUpdate: UIView, PullToRefreshViewDelegate {
         return self.radius / 10
     }
     
+    // MARK: - PullToRefreshViewDelegate methods:
+    
+    /**
+     PullToRefreshViewDelegate method.
+     Is called when refreshing animation starts.
+     
+     - warning: Should **not** be called directly.
+     */
     public func pullToRefreshAnimationDidStart(view: PullToRefreshView) {
-        // Animate ball up (Layer)
-        // Play loading animation
-        
         let borderY  = bounds.maxY
         let controlY = borderY - bounds.height * threshold
         
@@ -124,9 +151,13 @@ public class ElasticPullToUpdate: UIView, PullToRefreshViewDelegate {
     
     private var animationTimer: NSTimer?
     
+    /**
+     PullToRefreshViewDelegate method.
+     Is called when refreshing animation ends.
+     
+     - warning: Should **not** be called directly.
+     */
     public func pullToRefreshAnimationDidEnd(view: PullToRefreshView) {
-        // Animate ball down (Layer)
-        
         animationTimer?.invalidate()
         progress = (0, 0)
         
@@ -134,6 +165,13 @@ public class ElasticPullToUpdate: UIView, PullToRefreshViewDelegate {
         progressLayer.removeAllAnimations()
     }
     
+    /**
+     PullToRefreshViewDelegate method.
+     Is called when user is interactively pulling down.
+     
+     - warning: Should **not** be called directly.
+     - parameter progress: Pulling down progress.
+     */
     public func pullToRefresh(view: PullToRefreshView, progressDidChange progress: CGFloat) {
         self.superview?.bringSubviewToFront(self)
         
@@ -164,6 +202,13 @@ public class ElasticPullToUpdate: UIView, PullToRefreshViewDelegate {
     }
     
     private var pullState: PullToRefreshViewState?
+    /**
+     PullToRefreshViewDelegate method.
+     Is called when pulling state changes.
+     
+     - warning: Should **not** be called directly.
+     - parameter state: Pulling down state.
+     */
     public func pullToRefresh(view: PullToRefreshView, stateDidChange state: PullToRefreshViewState) {
         self.pullState = state
     }
