@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
   s.version      = "1.0.0"
   s.summary      = "Elastic pull animator for Refresher"
 
-  s.homepage     = "http://github.com/Ramotion/elastic-pull-to-update"
+  s.homepage     = "https://github.com/Ramotion/elastic-pull-to-update"
 
   s.license      = "MIT"
 
@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
 
   s.platform     = :ios, "8.0"
 
-  s.source       = { :git => "http://github.com/Ramotion/elastic-pull-to-update", :tag => "#{s.version}" }
+  s.source       = { :git => "https://github.com/Ramotion/elastic-pull-to-update.git", :tag => "#{s.version}" }
 
   s.source_files  = "ElasticPullToUpdate", "ElasticPullToUpdate/**/*.{h,m,swift}"
   s.public_header_files = "ElasticPullToUpdate/**/*.h"
@@ -22,6 +22,6 @@ Pod::Spec.new do |s|
 
   s.requires_arc = true
 
-  s.dependency "Refresher", "~> 0.6"
+  s.dependency "Refresher", "~> 0.5.0"
 
 end
