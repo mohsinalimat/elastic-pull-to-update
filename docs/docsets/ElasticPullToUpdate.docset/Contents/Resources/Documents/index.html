@@ -40,14 +40,41 @@
         <section>
           <section class="section">
             
-            <a href='#elasticpulltoupdate' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h1 id='elasticpulltoupdate'>ElasticPullToUpdate</h1>
-<a href='#elastic_pull_animator_for_refresher' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='elastic_pull_animator_for_refresher'>Elastic pull animator for Refresher</h3>
-<a href='#installation' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='installation'>Installation</h3>
+            <a href='#elastic_pull_to_update' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h1 id='elastic_pull_to_update'>Elastic pull to update</h1>
+
+<hr>
+
+<p>Elastic pull animator for <a href="https://github.com/jcavar/refresher">Refresher</a>.</p>
+<a href='#requirements' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='requirements'>Requirements</h2>
+
+<ul>
+<li>iOS 8.0+</li>
+<li>Swift 2.2</li>
+</ul>
+<a href='#installation' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='installation'>Installation</h2>
 <pre class="highlight ruby"><code><span class="n">pod</span> <span class="s1">'ElasticPullToUpdate'</span>
 </code></pre>
-<a href='#authors' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='authors'>Authors</h3>
+<a href='#depends_on' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='depends_on'>Depends on</h3>
+<pre class="highlight ruby"><code><span class="n">pod</span> <span class="s1">'Refresher'</span>
+</code></pre>
+<a href='#usage' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='usage'>Usage</h2>
+<pre class="highlight swift"><code> <span class="c1">// Use Refresher extension of UITableView</span>
+ <span class="n">tableView</span><span class="o">.</span><span class="nf">addPullToRefreshWithAction</span><span class="p">({</span>
+    <span class="nf">yourAsyncRefreshingCall</span><span class="p">(</span><span class="err">…</span><span class="p">,</span> <span class="nv">callback</span><span class="p">:</span> <span class="p">{</span>
+        <span class="err">…</span>
+        <span class="n">tableView</span><span class="o">.</span><span class="nf">stopPullToRefresh</span><span class="p">()</span>
+        <span class="err">…</span>
+    <span class="p">})</span>
+ <span class="p">},</span> <span class="nv">withAnimator</span><span class="p">:</span> <span class="kt">ElasticPullToUpdate</span><span class="p">(</span><span class="err">…</span><span class="p">))</span>
+</code></pre>
+<a href='#about' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='about'>About</h2>
 
-<p>Mikhail Stepkin, Ramotion Inc.</p>
+<p>The project maintained by <a href="https://ramotion.com?utm_source=gthb&amp;utm_medium=special&amp;utm_campaign=reel-search">app development agency</a> <a href="https://ramotion.com?utm_source=gthb&amp;utm_medium=special&amp;utm_campaign=reel-search">Ramotion Inc.</a></p>
+
+<p>See our other <a href="https://github.com/ramotion">open-source projects</a> or <a href="https://ramotion.com?utm_source=gthb&amp;utm_medium=special&amp;utm_campaign=reel-search">hire</a> us to design, develop, and grow your product.</p>
+
+<p><a href="https://twitter.com/intent/tweet?text=https://github.com/ramotion/reel-search"><img src="https://img.shields.io/twitter/url/http/shields.io.svg?style=social" alt="Twitter URL"></a>
+<a href="https://twitter.com/ramotion"><img src="https://img.shields.io/twitter/follow/ramotion.svg?style=social" alt="Twitter Follow"></a></p>
 
           </section>
         </section>
