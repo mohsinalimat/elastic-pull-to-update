@@ -163,9 +163,12 @@ public class ElasticPullToUpdate: UIView, PullToRefreshViewDelegate {
         circleLayer.removeAllAnimations()
         progressLayer.removeAllAnimations()
         
-        self.layer.sublayers?.forEach {
-            $0.removeFromSuperlayer()
-        }
+        [
+            shapeLayer,
+            circleLayer,
+            progressLayer,
+            ]
+            .forEach { $0.removeFromSuperlayer() }
     }
     
     /**
