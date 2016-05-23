@@ -6,7 +6,7 @@ target 'ElasticPullToUpdate' do
   pod 'Refresher'
 
   target 'ElasticPullToUpdateTests' do
-    # Pods for testing
+    pod 'Refresher'
   end
 
 end
