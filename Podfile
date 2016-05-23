@@ -6,7 +6,6 @@ target 'ElasticPullToUpdate' do
   pod 'Refresher'
 
   target 'ElasticPullToUpdateTests' do
-    inherit! :search_paths
     # Pods for testing
   end
 
