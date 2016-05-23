@@ -4,9 +4,11 @@ target 'ElasticPullToUpdate' do
   use_frameworks!
 
   pod 'Refresher'
-
-  target 'ElasticPullToUpdateTests' do
-    pod 'Refresher'
-  end
-
 end
+
+target 'ElasticPullToUpdateTests' do
+  use_frameworks!
+
+  pod 'Refresher'
+end
+
