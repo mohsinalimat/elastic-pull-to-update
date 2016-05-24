@@ -68,20 +68,32 @@ public class ElasticPullToUpdate: UIView, PullToRefreshViewDelegate {
      */
     public func pullToRefreshAnimationDidStart(view: PullToRefreshView) {
         let borderY  = bounds.maxY
-        let controlY = borderY - bounds.height * threshold
+        
+        let innerControlY = borderY - bounds.height * threshold
         
         let innerBowPath = UIBezierPath()
         innerBowPath.moveToPoint(CGPoint(x: bounds.minX, y: bounds.minY))
         innerBowPath.addLineToPoint(CGPoint(x: bounds.maxX, y: bounds.minY))
         innerBowPath.addLineToPoint(CGPoint(x: bounds.maxX, y: borderY))
-        innerBowPath.addQuadCurveToPoint(CGPoint(x: bounds.minX, y: borderY), controlPoint: CGPoint(x: bounds.midX, y: controlY))
+        innerBowPath.addQuadCurveToPoint(CGPoint(x: bounds.minX, y: borderY), controlPoint: CGPoint(x: bounds.midX, y: innerControlY))
         innerBowPath.addLineToPoint(CGPoint(x: bounds.minX, y: bounds.minY))
+        
+        let outerControlY = borderY - bounds.height * threshold / 2
+        
+        let outerBowPath = UIBezierPath()
+        outerBowPath.moveToPoint(CGPoint(x: bounds.minX, y: bounds.minY))
+        outerBowPath.addLineToPoint(CGPoint(x: bounds.maxX, y: bounds.minY))
+        outerBowPath.addLineToPoint(CGPoint(x: bounds.maxX, y: borderY))
+        outerBowPath.addQuadCurveToPoint(CGPoint(x: bounds.minX, y: borderY), controlPoint: CGPoint(x: bounds.midX, y: outerControlY))
+        outerBowPath.addLineToPoint(CGPoint(x: bounds.minX, y: bounds.minY))
         
         let flatPath = UIBezierPath(rect: self.bounds)
         
+        let values: [CGPath] = ([shapeLayer.path ?? innerBowPath.CGPath] + [innerBowPath, flatPath, outerBowPath, flatPath].map({$0.CGPath}))
+        
         let bounceAnimation = CAKeyframeAnimation(keyPath: "path")
-        bounceAnimation.values = [shapeLayer.path ?? innerBowPath.CGPath, innerBowPath.CGPath, flatPath.CGPath]
-        bounceAnimation.keyTimes = [0.0, 0.75, 1.0]
+        bounceAnimation.values = values
+        bounceAnimation.keyTimes = [0.0, 0.65, 0.80, 0.85, 1.0]
         bounceAnimation.duration = 0.5
         shapeLayer.addAnimation(bounceAnimation, forKey: "path")
         
@@ -180,6 +192,8 @@ public class ElasticPullToUpdate: UIView, PullToRefreshViewDelegate {
      */
     public func pullToRefresh(view: PullToRefreshView, progressDidChange progress: CGFloat) {
         self.superview?.bringSubviewToFront(self)
+        let bounds = self.bounds.insetBy(dx: 0, dy: -1)
+        
         
         let toPath: UIBezierPath
         if progress >= threshold {
