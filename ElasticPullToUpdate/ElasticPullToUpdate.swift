@@ -49,6 +49,7 @@ public class ElasticPullToUpdate: UIView, PullToRefreshViewDelegate {
     private let shapeLayer    = CAShapeLayer()
     private let circleLayer   = CAShapeLayer()
     private let progressLayer = CAShapeLayer()
+    private let veilLayer     = CAShapeLayer()
     
     private var radius: CGFloat {
         return self.frame.height / 5
@@ -93,7 +94,7 @@ public class ElasticPullToUpdate: UIView, PullToRefreshViewDelegate {
         
         let bounceAnimation = CAKeyframeAnimation(keyPath: "path")
         bounceAnimation.values = values
-        bounceAnimation.keyTimes = [0.0, 0.65, 0.80, 0.85, 1.0]
+        bounceAnimation.keyTimes = [0.0, 0.75, 0.85, 0.95, 1.0]
         bounceAnimation.duration = 0.5
         shapeLayer.addAnimation(bounceAnimation, forKey: "path")
         
@@ -179,6 +180,7 @@ public class ElasticPullToUpdate: UIView, PullToRefreshViewDelegate {
             shapeLayer,
             circleLayer,
             progressLayer,
+            veilLayer
             ]
             .forEach { $0.removeFromSuperlayer() }
     }
@@ -192,8 +194,7 @@ public class ElasticPullToUpdate: UIView, PullToRefreshViewDelegate {
      */
     public func pullToRefresh(view: PullToRefreshView, progressDidChange progress: CGFloat) {
         self.superview?.bringSubviewToFront(self)
-        let bounds = self.bounds.insetBy(dx: 0, dy: -1)
-        
+        let bounds = self.bounds.insetBy(dx: 0, dy: -0.5)
         
         let toPath: UIBezierPath
         if progress >= threshold {
@@ -228,6 +229,10 @@ public class ElasticPullToUpdate: UIView, PullToRefreshViewDelegate {
         let fillColor: UIColor = superview?.superview?.backgroundColor ?? UIColor.lightGrayColor()
         
         shapeLayer.fillColor = fillColor.CGColor
+        
+        veilLayer.path = UIBezierPath(rect: self.window?.bounds ?? CGRect.zero).CGPath
+        veilLayer.fillColor = UIColor.whiteColor().colorWithAlphaComponent((progress - threshold)).CGColor
+        self.superview?.layer.insertSublayer(veilLayer, atIndex: 0)
     }
     
     private var pullState: PullToRefreshViewState?
