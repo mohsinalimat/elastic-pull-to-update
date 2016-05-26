@@ -233,7 +233,7 @@ public class ElasticPullToUpdate: UIView, PullToRefreshViewDelegate {
         shapeLayer.fillColor = fillColor.CGColor
         
         veilLayer.path = UIBezierPath(rect: self.window?.bounds ?? CGRect.zero).CGPath
-        veilLayer.fillColor = UIColor.whiteColor().colorWithAlphaComponent((progress - threshold)).CGColor
+        veilLayer.fillColor = UIColor.whiteColor().colorWithAlphaComponent(progress).CGColor
         self.superview?.layer.insertSublayer(veilLayer, atIndex: 0)
     }
     
@@ -242,7 +242,6 @@ public class ElasticPullToUpdate: UIView, PullToRefreshViewDelegate {
             guard
                 let oldValue  = oldValue,
                 let pullState = pullState
-                where oldValue != pullState
                 else { return }
             
             switch (oldValue, pullState) {

@@ -10,13 +10,16 @@ import UIKit
 import ElasticPullToUpdate
 
 class ViewController: UITableViewController {
-
-    var bouncy: ElasticPullToUpdate!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         
-        bouncy = ElasticPullToUpdate(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 100))
+        let bouncy = ElasticPullToUpdate(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 100))
         
         self.tableView.addPullToRefreshWithAction({
             NSOperationQueue().addOperationWithBlock {
