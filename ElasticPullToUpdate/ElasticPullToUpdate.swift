@@ -185,6 +185,8 @@ public class ElasticPullToUpdate: UIView, PullToRefreshViewDelegate {
             .forEach { $0.removeFromSuperlayer() }
     }
     
+    private var pulling: Bool = true
+    
     /**
      PullToRefreshViewDelegate method.
      Is called when user is interactively pulling down.
@@ -197,7 +199,7 @@ public class ElasticPullToUpdate: UIView, PullToRefreshViewDelegate {
         let bounds = self.bounds.insetBy(dx: 0, dy: -0.5)
         
         let toPath: UIBezierPath
-        if progress >= threshold {
+        if pulling && progress >= threshold {
             let coef: CGFloat = min(1.0, (progress - threshold))
             let borderY  = bounds.maxY
             let controlY = borderY + bounds.height * coef
@@ -235,7 +237,22 @@ public class ElasticPullToUpdate: UIView, PullToRefreshViewDelegate {
         self.superview?.layer.insertSublayer(veilLayer, atIndex: 0)
     }
     
-    private var pullState: PullToRefreshViewState?
+    private var pullState: PullToRefreshViewState? {
+        didSet {
+            guard
+                let oldValue  = oldValue,
+                let pullState = pullState
+                where oldValue != pullState
+                else { return }
+            
+            switch (oldValue, pullState) {
+            case (.Loading, .PullToRefresh):
+                pulling = false
+            default:
+                pulling = true
+            }
+        }
+    }
     /**
      PullToRefreshViewDelegate method.
      Is called when pulling state changes.
