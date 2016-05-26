@@ -1,0 +1,19 @@
+PODS:
+  - ElasticPullToUpdate (1.1.0):
+    - Refresher (~> 0.5.0)
+  - Refresher (0.5.0)
+
+DEPENDENCIES:
+  - ElasticPullToUpdate (from `../`)
+
+EXTERNAL SOURCES:
+  ElasticPullToUpdate:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  ElasticPullToUpdate: 4ebcae9c3417f166f295eda45bda765db89631d7
+  Refresher: 485f5990e6315add7f3470db5a4ca106451b11d3
+
+PODFILE CHECKSUM: b06738da15460fb97a207033455a7579da43f585
+
+COCOAPODS: 1.0.0
