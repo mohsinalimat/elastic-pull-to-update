@@ -238,7 +238,7 @@ public class ElasticPullToUpdate: UIView, PullToRefreshViewDelegate {
         
         if let superview = self.superview, let window = self.window {
             veilLayer.path = UIBezierPath(rect: window.bounds).CGPath
-            veilLayer.fillColor = UIColor.whiteColor().colorWithAlphaComponent(progress).CGColor
+            veilLayer.fillColor = UIColor.whiteColor().colorWithAlphaComponent(2 * progress).CGColor
             superview.layer.insertSublayer(veilLayer, atIndex: 0)
         }
     }
