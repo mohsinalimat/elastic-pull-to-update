@@ -31,7 +31,7 @@ import Refresher
  ```
  */
 public class ElasticPullToUpdate: UIView, PullToRefreshViewDelegate {
-    private static let iota = 0.01
+    private static let iota = 0.007
     
     /// Set the pulling down threshold. Value is between `0.0` and `1.0`.
     public var threshold: CGFloat = 0.5 {
@@ -289,7 +289,7 @@ public class ElasticPullToUpdate: UIView, PullToRefreshViewDelegate {
         let animation = CABasicAnimation(keyPath: "path")
         animation.fromValue = self.progressLayer.path
         animation.toValue   = progressPath
-        animation.duration  = 0.1
+        animation.duration  = ElasticPullToUpdate.iota/10
         animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
         self.progressLayer.addAnimation(animation, forKey: "path")
         
