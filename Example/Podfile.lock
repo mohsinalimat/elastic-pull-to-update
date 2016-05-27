@@ -1,5 +1,5 @@
 PODS:
-  - ElasticPullToUpdate (1.3.3):
+  - ElasticPullToUpdate (1.3.4):
     - Refresher (~> 0.5.0)
   - Refresher (0.5.0)
 
@@ -11,7 +11,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  ElasticPullToUpdate: 15d5eb7b166e687392f63fb6d45515b8d46aa3c6
+  ElasticPullToUpdate: 7e82a720bc3d7f9f528e547033bfa8b7275ff97e
   Refresher: 485f5990e6315add7f3470db5a4ca106451b11d3
 
 PODFILE CHECKSUM: b06738da15460fb97a207033455a7579da43f585
