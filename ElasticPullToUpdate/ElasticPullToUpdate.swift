@@ -68,6 +68,8 @@ public class ElasticPullToUpdate: UIView, PullToRefreshViewDelegate {
      - warning: Should **not** be called directly.
      */
     public func pullToRefreshAnimationDidStart(view: PullToRefreshView) {
+        self.superview?.superview?.userInteractionEnabled = false
+        
         let borderY  = bounds.maxY
         
         let innerControlY = borderY - bounds.height * threshold
@@ -183,6 +185,8 @@ public class ElasticPullToUpdate: UIView, PullToRefreshViewDelegate {
             veilLayer
             ]
             .forEach { $0.removeFromSuperlayer() }
+        
+        self.superview?.superview?.userInteractionEnabled = true
     }
     
     private var pulling: Bool = true
@@ -232,9 +236,11 @@ public class ElasticPullToUpdate: UIView, PullToRefreshViewDelegate {
         
         shapeLayer.fillColor = fillColor.CGColor
         
-        veilLayer.path = UIBezierPath(rect: self.window?.bounds ?? CGRect.zero).CGPath
-        veilLayer.fillColor = UIColor.whiteColor().colorWithAlphaComponent(progress).CGColor
-        self.superview?.layer.insertSublayer(veilLayer, atIndex: 0)
+        if let superview = self.superview, let window = self.window {
+            veilLayer.path = UIBezierPath(rect: window.bounds).CGPath
+            veilLayer.fillColor = UIColor.whiteColor().colorWithAlphaComponent(progress).CGColor
+            superview.layer.insertSublayer(veilLayer, atIndex: 0)
+        }
     }
     
     private var pullState: PullToRefreshViewState? {
